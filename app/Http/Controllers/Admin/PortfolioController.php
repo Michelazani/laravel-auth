@@ -22,7 +22,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.portfolios.create');
     }
 
     /**
@@ -30,31 +30,35 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $portfolio = Portfolio::create($data);
+        return redirect()->route('admin.portfolios.show', $portfolio);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Portfolio $portfolio)
     {
-        //
+        return view('admin.portfolios.show',compact('portfolio') );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Portfolio $portfolio)
     {
-        //
+        return view('admin.portfolios.edit', compact('portfolio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        $data = $request->all();
+        $portfolio ->update($data);
+        return redirect()->route('admin.portfolios.show', $portfolio);
     }
 
     /**

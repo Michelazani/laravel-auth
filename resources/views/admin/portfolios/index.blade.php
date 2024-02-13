@@ -12,4 +12,49 @@
         </div>
     </div>
 </div>
+
+{{-- inizio parte della tabella per scegliere progetto da visualizzare --}}
+<div class="col-10 mx-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Project</th>
+                <th scope="col">Author</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ( $portfolios as $portfolio )
+                <tr>
+                    <th scope="row">
+                        {{ $portfolio->id }}
+                    </th>
+                <td>
+                <a href="{{ route('admin.portfolios.show', $portfolio) }}">
+                    {{ $portfolio->Project }}
+                </a>
+                </td>
+                <td>
+                    {{ $portfolio->Author }}
+                </td>
+                <td>
+                    {{ $portfolio->Description }}
+                </td>
+                <td>
+                    <a href="{{ route('admin.portfolios.show', $portfolio) }}" class="text-decoration-none">
+                        <button class="btn btn-sm btn-primary">
+                            View
+                        </button>
+                    </a>
+                    <a href="{{ route('admin.portfolios.edit', $portfolio) }}" class="text-decoration-none">
+                        <button class="btn btn-sm btn-success">
+                            Edit
+                        </button>
+                    </a>
+                         <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $portfolio->id }}">
+                             Delete
+                        </button>
+            @endforeach
 @endsection
