@@ -53,8 +53,12 @@
                             Edit
                         </button>
                     </a>
-                         <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $portfolio->id }}">
-                             Delete
-                        </button>
-            @endforeach
+                    <form action="{{ route('admin.portfolios.destroy', $portfolio) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-warning btn-sm d-inline-block" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $portfolio->id }}">
+                            Delete
+                       </button>
+                    </form>
+                    @endforeach
 @endsection

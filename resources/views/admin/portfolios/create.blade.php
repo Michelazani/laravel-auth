@@ -7,20 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-7">
            
-            {{-- gestione degli errori --}}
-            @if($errors->any())
-            <div class="alert alert-danger" role="alert">
-                <ul>
-                @foreach ($errors->all() as $error)
-                    <li>
-                        <strong>
-                            {{ $error }}
-                        </strong>
-                    </li>
-                @endforeach
-                </ul>
-            </div>
-            @endif
+            @include('layouts.partials.errors')
 
             <form action="{{ route('admin.portfolios.store') }}" method="POST">
                 @csrf
