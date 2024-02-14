@@ -38,6 +38,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <ul class=" ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.portfolios.index') }}">
+                                    Project
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.portfolios.create') }}">
+                                    Create new project
+                                </a>
+                            </li>
+                        </ul>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
