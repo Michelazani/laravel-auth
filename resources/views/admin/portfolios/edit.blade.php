@@ -9,7 +9,7 @@
            
            @include('layouts.partials.errors')
 
-            <form action="{{ route('admin.portfolios.store') }}" method="POST">
+            <form action="{{ route('admin.portfolios.update', $portfolio) }}" method="POST">
                 @csrf
 
                 <h2 class="m-4">Edit the project:</h2>
@@ -27,7 +27,7 @@
                     <textarea class="form-control"  name="description" id="description" cols="20" rows="5">{{ old('Description', $portfolio->Description)  }}</textarea>
                 </div>
                 <div class="mb-3 input-group">
-                    <a href="{{ route('admin.portfolios.edit', $portfolio) }}" class="text-decoration-none">
+                    <a href="{{ route('admin.portfolios.update', $portfolio) }}" class="text-decoration-none">
                         <button class="btn btn-sm btn-success">
                             Edit
                         </button>
